@@ -1,15 +1,14 @@
-
-import time
 import unittest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+
 class TestRequiredInputs(unittest.TestCase):
     def setUp(self):
         self.browser = webdriver.Chrome()
-    
+
     def tearDown(self):
         self.browser.quit()
 
@@ -22,7 +21,7 @@ class TestRequiredInputs(unittest.TestCase):
         third_required = self.browser.find_element_by_css_selector("input.third[required]")
         elements = [first_required, second_required, third_required]
         for element in elements:
-           element.send_keys("some text")
+            element.send_keys("some text")
 
         # submit the form
         button = self.browser.find_element_by_css_selector("button.btn")
@@ -40,11 +39,11 @@ class TestRequiredInputs(unittest.TestCase):
         result = self.get_registration_result(link);
         self.assertEqual("Congratulations! You have successfully registered!", result, "Registration failed")
 
-        
     def test_registration2(self):
         link = "http://suninjuly.github.io/registration2.html"
         result = self.get_registration_result(link);
         self.assertEqual("Congratulations! You have successfully registered!", result, "Registration failed")
-        
+
+
 if __name__ == "__main__":
     unittest.main()
